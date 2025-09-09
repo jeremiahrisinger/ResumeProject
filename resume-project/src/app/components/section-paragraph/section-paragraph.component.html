@@ -1,0 +1,52 @@
+<div class="row">
+    <div *ngIf="!isEditMode"
+        class="heading-2">
+        {{this.model.paragraphHeader}}
+    </div> 
+    <div *ngIf="isEditMode">
+        <input 
+            class="no-outline-input heading-2"
+            [(ngModel)]="this.model.paragraphHeader"
+            type="text"/>
+    </div>
+    <div class="row">
+        <button 
+            *ngIf="isEditMode"
+            class="no-outline-button" 
+            (click)="toggleBullets()">
+                <mat-icon *ngIf="model.isBulleted">format_align_left</mat-icon>
+                <mat-icon *ngIf="!model.isBulleted">format_list_bulleted</mat-icon>
+        </button>
+        
+        <button 
+            *ngIf="isEditMode"
+            class="no-outline-button" 
+            (click)="add()">
+                <mat-icon>add</mat-icon>
+        </button>
+        <button 
+            *ngIf="isEditMode"
+            class="no-outline-button red-hover" 
+            (click)="clear()">
+                <mat-icon>delete_outline</mat-icon>
+        </button>
+    </div>
+</div>
+
+<ng-container *ngIf="!isEditMode">
+    <p class="paragraph-spacing" *ngFor="let p of this.model.paragraphBodies">{{p}}</p>
+</ng-container>
+
+<ng-container *ngIf="isEditMode">
+    <ng-container *ngFor="let p of this.model.paragraphBodies; let i = index; trackBy: trackByFn">
+        <textarea 
+            id="paragraph-editor"
+            rows="5"
+            cols="30"
+            class="no-outline-area-text"
+            [(ngModel)]="this.model.paragraphBodies[i]"
+            >
+            {{p}}
+        </textarea>
+    </ng-container>
+</ng-container>

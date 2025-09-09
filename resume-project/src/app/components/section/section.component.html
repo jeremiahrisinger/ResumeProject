@@ -1,0 +1,66 @@
+<div class="container shadow-medium">
+    <mat-accordion>
+        <div class="row">
+            <app-section-heading *ngIf="!isEditHeading"
+                [headerText]="this.model.heading">
+            </app-section-heading>
+
+            <input *ngIf="isEditHeading"
+                class="no-outline-input heading-1"
+                [(ngModel)]="this.model.heading"
+                type="text">
+            <div class="row">
+                <button *ngIf="!isCollapsed && !isEditHeading"
+                    class="no-outline-button" 
+                    (click)="editHeading()">
+                        <mat-icon>edit</mat-icon>
+                </button>
+                <button *ngIf="!isCollapsed && isEditHeading"
+                    class="no-outline-button" 
+                    (click)="addBulleted()">
+                        <mat-icon>add</mat-icon>
+                        <mat-icon>format_list_bulleted</mat-icon>
+                </button>
+                <button *ngIf="!isCollapsed && isEditHeading"
+                    class="no-outline-button" 
+                    (click)="add()">
+                        <mat-icon>add</mat-icon>
+                        <mat-icon>format_align_left</mat-icon>
+                </button>
+                <button *ngIf="!isCollapsed && isEditHeading"
+                    class="no-outline-button red-hover" 
+                    (click)="clear()">
+                        <mat-icon>delete</mat-icon>
+                </button>
+                <button *ngIf="!isCollapsed && isEditHeading"
+                    class="no-outline-button" 
+                    (click)="editHeading()">
+                        <mat-icon>save</mat-icon>
+                </button>
+                <button 
+                    class="no-outline-button" 
+                    (click)="toggle()">
+                        <mat-icon>{{toggleButtonText}}</mat-icon>
+                </button>
+            </div>
+        </div>
+        <mat-expansion-panel 
+            style="padding: 0px;" 
+            [expanded]="!isCollapsed">
+            <ng-container *ngFor="let paragraph of this.model.paragraphs">
+                
+                <app-section-paragraph *ngIf="!paragraph.isBulleted"
+                    [model]="paragraph"
+                    [isEditMode] = 'isEditMode'>
+                </app-section-paragraph>
+
+                <app-section-bullet-list *ngIf="paragraph.isBulleted"
+                    [model]="paragraph"
+                    [isEditMode] = 'isEditMode'>
+                </app-section-bullet-list>
+
+                <br>
+            </ng-container>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

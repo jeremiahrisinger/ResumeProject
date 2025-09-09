@@ -1,0 +1,37 @@
+    <app-header 
+        [title] = '"Resume"'>
+    </app-header>
+
+    <div class="section-container column">
+        <div class="container shadow-medium row">
+            <input 
+                class="no-outline-input heading-1"
+                type="text" 
+                [(ngModel)]="newSectionHeader">
+            <div class="row">   
+                <button 
+                    class="no-outline-button" 
+                    (click)="addNewBulletedSection(newSectionHeader, '',[''])">
+                    <mat-icon>add</mat-icon>
+                    <mat-icon>format_list_bulleted</mat-icon>
+                </button>  
+                <button 
+                    class="no-outline-button" 
+                    (click)="addNewSection(newSectionHeader, '',[''])">
+                    <mat-icon>add</mat-icon>
+                    <mat-icon>format_align_left</mat-icon>
+                </button>  
+                <button 
+                    class="no-outline-button red-hover" 
+                    (click)="delete()">
+                    <mat-icon>delete_forever</mat-icon>
+                </button> 
+            </div> 
+        </div>
+
+        <app-section
+            *ngFor="let section of this.sections"
+            [model]="section">
+        </app-section>
+    </div>
+
