@@ -223,13 +223,11 @@ body {
 .mat-expansion-panel-body {
     padding: 0 !important;
     border-radius: 0px;
+    box-shadow: none;
 }
 .mat-accordion .mat-expansion-panel:first-of-type {
     border-radius: 0px !important;
-}
-
-.mat-expansion-panel:not([class*=mat-elevation-z]) {
-    box-shadow: 0px;
+    box-shadow: none;
 }
 
 
