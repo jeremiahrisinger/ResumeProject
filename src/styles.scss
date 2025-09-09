@@ -228,6 +228,11 @@ body {
     border-radius: 0px !important;
 }
 
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0px;
+}
+
+
 * {
     margin: 0;
     padding: 0;
