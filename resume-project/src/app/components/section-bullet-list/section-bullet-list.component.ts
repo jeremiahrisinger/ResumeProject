@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ParagraphModel } from 'src/app/models/paragraph.model';
 
 @Component({
-  selector: 'app-section-bullet-list',
-  templateUrl: './section-bullet-list.component.html',
-  styleUrls: ['./section-bullet-list.component.scss']
+    selector: 'app-section-bullet-list',
+    templateUrl: './section-bullet-list.component.html',
+    styleUrls: ['./section-bullet-list.component.scss'],
+    standalone: false
 })
 export class SectionBulletListComponent implements OnInit {
 

@@ -3,9 +3,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ParagraphModel } from 'src/app/models/paragraph.model';
 
 @Component({
-  selector: 'app-section-paragraph',
-  templateUrl: './section-paragraph.component.html',
-  styleUrls: ['./section-paragraph.component.scss']
+    selector: 'app-section-paragraph',
+    templateUrl: './section-paragraph.component.html',
+    styleUrls: ['./section-paragraph.component.scss'],
+    standalone: false
 })
 export class SectionParagraphComponent implements OnInit {
   @Input() text: string = '';
@@ -41,7 +42,6 @@ export class SectionParagraphComponent implements OnInit {
   }
 
   clear() {
-
     this.model.paragraphBodies = []
   }
 
@@ -50,7 +50,6 @@ export class SectionParagraphComponent implements OnInit {
   }
 
   emit() {
-
     this.event.emit(this.model);
   }
 

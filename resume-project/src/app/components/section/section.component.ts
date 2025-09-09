@@ -4,16 +4,17 @@ import { ParagraphModel } from 'src/app/models/paragraph.model';
 import { SectionModel } from 'src/app/models/section.model';
 
 @Component({
-  selector: 'app-section',
-  templateUrl: './section.component.html',
-  styleUrls: ['./section.component.scss'],
-  animations: [
+    selector: 'app-section',
+    templateUrl: './section.component.html',
+    styleUrls: ['./section.component.scss'],
+    animations: [
         trigger('collapseExpand', [
-          state('collapsed', style({ height: '0', overflow: 'hidden' })),
-          state('expanded', style({ height: '*', overflow: 'hidden' })),
-          transition('collapsed <=> expanded', animate('300ms ease-in-out'))
+            state('collapsed', style({ height: '0', overflow: 'hidden' })),
+            state('expanded', style({ height: '*', overflow: 'hidden' })),
+            transition('collapsed <=> expanded', animate('300ms ease-in-out'))
         ])
-      ]
+    ],
+    standalone: false
 })
 export class SectionComponent implements OnInit {
 

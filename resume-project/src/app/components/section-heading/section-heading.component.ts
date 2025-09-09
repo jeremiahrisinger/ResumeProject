@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-section-heading',
-  templateUrl: './section-heading.component.html',
-  styleUrls: ['./section-heading.component.scss']
+    selector: 'app-section-heading',
+    templateUrl: './section-heading.component.html',
+    styleUrls: ['./section-heading.component.scss'],
+    standalone: false
 })
 export class SectionHeadingComponent implements OnInit {
 
